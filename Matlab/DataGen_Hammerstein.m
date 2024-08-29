@@ -19,8 +19,8 @@
 %   (a) with the same NL used in all .mat files (invNL)
 %   (b) with the NL indivudual for every .mat file (varNL)
 % And also IR can be simulated in 2 different ways:
-%   (a) with the same time-invariant IR used in all .mat files (invIR)
-%   (b) with the time-invariant IRs indivudual for every .mat file (varIR)
+%   (a) with the same time-invariant IR used in all .mat files (invSI)
+%   (b) with the time-invariant IRs indivudual for every .mat file (varSI)
 % Further note that two types of NLs are available (atan and limiter).
 % IRs of the SI channel is adjusted acc. to [2].
 % 
@@ -39,22 +39,22 @@ clear variables; clc; close all
 strings.datetime_start = string(datetime('now')); fprintf(strings.datetime_start); fprintf('\n');
 
 %% Some simalation variables
-NumFiles = 50;         % number of files per dataset
+NumFiles = 50;          % number of files per dataset
 flags.save_mat = 0;     % flag for saving the .mat-files (0 not save, 1 save)
 flags.plot_fig = 1;     % flag for visualization of the control variables
 
 %% Configuration of a dataset regarding NL and IR usage
 flags.varNL = 1;        % 0 - 'invNL', 1 (or otherwise) - 'varNL'
 % configuration of a dataset regarding IR usage
-flags.varIR = 1;        % 0 - 'invIR', 1 (or otherwise) - 'varIR'
+flags.varSI = 1;        % 0 - 'invSI', 1 (or otherwise) - 'varSI'
 
 % set the respective flags for the chosen system dynamics
 if flags.varNL==0; strings.NL = 'invNL'; else; strings.NL = 'varNL'; end
-if flags.varIR==0; strings.IR = 'invIR'; else; strings.IR = 'varIR'; end
+if flags.varSI==0; strings.SI = 'invSI'; else; strings.SI = 'varSI'; end
 datasets_str = {'train', 'test'};
 % Check and make folders for datasets, if not available
 folders.data = 'Data';
-folders.dataset = [strings.NL '_' strings.IR];
+folders.dataset = [strings.NL '_' strings.SI];
 folders.datasets_str = datasets_str;
 if flags.save_mat; utils.checkMakeFolders(folders); end
 
@@ -101,7 +101,7 @@ for idx_datasets=1:length(datasets_str)
     
         %% Apply SI channel
         % reset the channel parameters (new pathGains), if required
-        if flags.varIR~=0; reset(tgnChannel); end
+        if flags.varSI~=0; reset(tgnChannel); end
         [sig_x, tgnChan_info, parChanSI] = SIchannel.adjustApply(sig_z, tgnChannel, parChanSI);
         % Obtain statistics of the SI channel
         parChanSI = SIchannel.statsChanSI(parChanSI, tgnChan_info.PathDelays);
