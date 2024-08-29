@@ -6,11 +6,13 @@ This repository includes collection of methods for generation of the Orthogonal 
 
 Two system options with SIC are considered: Hammerstein and Wiener. Two core components of both systems are a SI channel and a nonlinear power amplifier. The generated impulse responses of SI channel show the following power delay profile (PDP)
 
-[Fig. 2(a)]
+![Fig2a](https://github.com/user-attachments/assets/c1fe3395-958e-4218-bdeb-96146793b29c)
+
 
 The amplifier nonlinearities are simulated by two different nonlinear functions defined in [1] with the following demendencies between their parameters and scale-invariant signal-to-distortion ratio (SI-SDR)
 
-[Fig. 2(a)]
+![Fig2b](https://github.com/user-attachments/assets/98a748a8-3aaf-4bcf-8792-a57f4c21f4bf)
+
 
 While the respective Matlab scripts for data generation are placed in the 'Matlab' folder, the 'Data' folder contains the datasets of the experimental evaluation in [1].
 
