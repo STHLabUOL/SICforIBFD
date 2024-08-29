@@ -31,10 +31,10 @@ classdef Nonlinearity
             % 2) add a non-linearity (different types possible) to the magnitude of x_norm
             % load sisdr_to_param.mat % with SISDR_dB_atan, SISDR_dB_limiter & param_NL_vec
             if type_nl<=3
-                load sisdr_to_param_atan.mat % with SISDR_dB_atan & param_NL_vec
+                load('mat_files/sisdr_to_param_atan.mat') % with SISDR_dB_atan & param_NL_vec
                 param_NL = interp1(SISDR_dB_atan, param_NL_vec, SISDR_dB);
             elseif type_nl==4
-                load sisdr_to_param_limiter.mat % with SISDR_dB_limiter & param_NL_vec
+                load('mat_files/sisdr_to_param_limiter.mat') % with SISDR_dB_limiter & param_NL_vec
                 param_NL = interp1(SISDR_dB_limiter, param_NL_vec, SISDR_dB);
             end
             x_norm_abs_PA = Nonlinearity.addNonLinearity(abs(x_norm), type_nl, param_NL);
