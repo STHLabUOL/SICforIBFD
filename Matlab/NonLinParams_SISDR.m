@@ -9,10 +9,10 @@
 clear variables; clc; close all
 
 SISDR_dB_axis = 6:.5:74;
-load sisdr_to_param_atan.mat
+load('mat_files/sisdr_to_param_atan.mat');
 param_NL_vec_atan = param_NL_vec;
 param_atan_axis = interp1(SISDR_dB_atan, param_NL_vec, SISDR_dB_axis);
-load sisdr_to_param_limiter.mat
+load('mat_files/sisdr_to_param_limiter.mat');
 param_NL_vec_limiter = param_NL_vec;
 param_limiter_axis = interp1(SISDR_dB_limiter, param_NL_vec, SISDR_dB_axis);
 %
