@@ -7,11 +7,11 @@ classdef utils
         % Check and make folders for datasets, if not available
             if ~isfolder(folders.data); mkdir(folders.data); end
             if ~isfolder([folders.data '/' folders.dataset]); mkdir([folders.data '/' folders.dataset]); end
-            if ~isfolder([folders.data '/' folders.dataset '/' datasets_str{1}])
-                mkdir([folders.data '/' folders.dataset '/' datasets_str{1}]);
+            if ~isfolder([folders.data '/' folders.dataset '/' folders.datasets_str{1}])
+                mkdir([folders.data '/' folders.dataset '/' folders.datasets_str{1}]);
             end
-            if ~isfolder([folders.data '/' folders.dataset '/' datasets_str{2}])
-                mkdir([folders.data '/' folders.dataset '/' datasets_str{2}]);
+            if ~isfolder([folders.data '/' folders.dataset '/' folders.datasets_str{2}])
+                mkdir([folders.data '/' folders.dataset '/' folders.datasets_str{2}]);
             end
         end
 

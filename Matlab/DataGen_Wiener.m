@@ -44,8 +44,8 @@ flags.save_mat = 0;     % flag for saving the .mat-files (0 not save, 1 save)
 flags.plot_fig = 1;     % flag for visualization of the control variables
 
 %% Configuration of a dataset regarding IR and NL usage
-flags.varIR = 0;        % 0 - 'invIR', 1 (or otherwise) - 'varIR'
-flags.varNL = 0;        % 0 - 'invNL', 1 (or otherwise) - 'varNL'
+flags.varIR = 1;        % 0 - 'invIR', 1 (or otherwise) - 'varIR'
+flags.varNL = 1;        % 0 - 'invNL', 1 (or otherwise) - 'varNL'
 
 if flags.varIR==0; strings.IR = 'invIR'; else; strings.IR = 'varIR'; end
 if flags.varNL==0; strings.NL = 'invNL'; else; strings.NL = 'varNL'; end
@@ -53,6 +53,7 @@ datasets_str = {'train', 'test'};
 % check and make folders for datasets, if not available
 folders.data = 'Data';
 folders.dataset = [strings.IR '_' strings.NL];
+folders.datasets_str = datasets_str;
 if flags.save_mat; utils.checkMakeFolders(folders); end
 
 %% Configuration of signal generation

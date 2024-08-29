@@ -55,6 +55,7 @@ datasets_str = {'train', 'test'};
 % Check and make folders for datasets, if not available
 folders.data = 'Data';
 folders.dataset = [strings.NL '_' strings.IR];
+folders.datasets_str = datasets_str;
 if flags.save_mat; utils.checkMakeFolders(folders); end
 
 %% Configuration of signal generation
