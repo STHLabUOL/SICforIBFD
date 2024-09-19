@@ -16,7 +16,7 @@ The amplifier nonlinearities are simulated by two different functions (arctan an
 
 While the respective Matlab scripts for data generation are located in the 'Matlab' folder, the 'Data' folder contains the data sets of the experimental evaluation from [1].
 
-Three datasets are generated for Hammerstein (H) and Wiener (W) systems  each, i.e., with variant or invariant SI channel $h_\text{SI}[k]$ and with variant or invariant nonlinearity (NL), labeled as: <br></br>&nbsp;&nbsp; H) ''invNL+invSI'', ''invNL+varSI'', and ''varNL+varSI''<br></br>&nbsp;&nbsp; W) ''invSI+invNL'', ''varSI+invNL'', and ''varSI+varNL''.
+Different datasets are generated for Hammerstein (H) and Wiener (W) systems  each, i.e., with variant or invariant SI channel $h_\text{SI}[k]$ and with variant or invariant nonlinearity (NL), labeled as: <br></br>&nbsp;&nbsp; H) ''invNL+invSI'', ''invNL+varSI'', and ''varNL+varSI''<br></br>&nbsp;&nbsp; W) ''invSI+invNL'',  ''invSI+varNL'', ''varSI+invNL'', and ''varSI+varNL''.
 
 Each of the dataset consists of 10 file IDs each representing a time-invariant SI system. The identifier ''inv'' here refers to invariable SI channels or nonlinearities across the data set, while the label ''var'' means a variable SI channel for each file ID based on new path gains for $h_\text{SI}[k]$ or a variable nonlinearity with corresponding $\text{SI-SDR}$ uniformly drawn from the interval $\mathrm{SDR}_0\pm 4\,\mathrm{dB}$.
 
